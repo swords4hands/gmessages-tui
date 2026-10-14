@@ -1,0 +1,14 @@
+services:
+  gmessages-tui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: gmessages-tui
+    stdin_open: true
+    tty: true
+    environment:
+      GMESSAGES_URL: https://messages.google.com/web
+      PLAYWRIGHT_PROFILE_DIR: /data/chromium
+      GMESSAGES_HEADLESS: "false"
+    volumes:
+      - ./playwright-data:/data
